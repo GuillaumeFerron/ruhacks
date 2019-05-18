@@ -27,6 +27,7 @@ class CreateMedicationsTable extends Migration
             $table->string('time')->default('09:00:00');
             $table->boolean('refillable')->default(false);
             $table->integer('qty');
+            $table->boolean('reminders_generated')->default(false);
             $table->timestamps();
         });
     }
