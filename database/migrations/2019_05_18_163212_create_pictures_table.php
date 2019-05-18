@@ -16,8 +16,8 @@ class CreatePicturesTable extends Migration
         Schema::create('pictures', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('medication_id');
-            $table->string('UID');
-            $table->string('path');
+            $table->string('UID')->unique();
+            $table->string('path')->unique();
             $table->string('type');
             $table->timestamps();
         });

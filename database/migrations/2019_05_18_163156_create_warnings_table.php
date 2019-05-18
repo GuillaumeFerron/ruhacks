@@ -16,7 +16,7 @@ class CreateWarningsTable extends Migration
         Schema::create('warnings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('medication_id');
-            $table->string('UID');
+            $table->string('UID')->unique();
             $table->string('name');
             $table->string('description');
             $table->integer('level')->default(\App\Warning::$LEVEL_1);
