@@ -49,4 +49,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Medication::class);
     }
+
+    public function reminders()
+    {
+        return $this->hasManyThrough(Reminder::class, Medication::class);
+    }
 }

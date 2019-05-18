@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Medication;
 use Illuminate\Http\Request;
 
 class MedicationController extends Controller
@@ -13,7 +14,7 @@ class MedicationController extends Controller
      */
     public function index()
     {
-        //
+        return Medication::paginate(config('database.pagination'));
     }
 
     /**
@@ -29,7 +30,7 @@ class MedicationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -40,18 +41,18 @@ class MedicationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        return Medication::find($id)->paginate(config('database.pagination'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -62,8 +63,8 @@ class MedicationController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -74,11 +75,16 @@ class MedicationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
+    }
+
+    public function medicationReminders(Medication $medication)
+    {
+        return $medication->reminders()->paginate(config('database.pagination'));
     }
 }
