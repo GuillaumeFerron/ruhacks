@@ -25,6 +25,7 @@ class CreateMedicationsTable extends Migration
             $table->string('store_phone')->nullable();
             $table->string('frequency')->default('daily');
             $table->string('time')->default('09:00:00');
+            $table->boolean('refillable')->default(false);
             $table->timestamps();
         });
     }
