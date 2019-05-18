@@ -20,12 +20,13 @@ class CreateMedicationsTable extends Migration
             $table->float('quantity_amount')->default(1.0);
             $table->string('quantity_type')->default('tablet');
             $table->dateTime('start_date')->default(\Carbon\Carbon::today());
-            $table->dateTime('end_date');
+            $table->dateTime('end_date')->nullable();
             $table->string('codes')->nullable();
             $table->string('store_phone')->nullable();
             $table->string('frequency')->default('daily');
             $table->string('time')->default('09:00:00');
             $table->boolean('refillable')->default(false);
+            $table->integer('qty');
             $table->timestamps();
         });
     }
