@@ -36,6 +36,7 @@ Route::group([
         Route::get('/{user}/medications', 'UserController@userMedications');
         Route::get('/{user}/reminders', 'UserController@userReminders');
         Route::post('/send-reminders', 'UserController@sendReminders');
+        Route::post('/followup-reminders', 'UserController@followUpReminders');
     });
 
     Route::group([

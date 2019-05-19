@@ -1823,6 +1823,12 @@ __webpack_require__.r(__webpack_exports__);
         method: 'post',
         url: '/users/send-reminders'
       });
+    },
+    followUpReminders: function followUpReminders() {
+      axios({
+        method: 'post',
+        url: '/users/followup-reminders'
+      });
     }
   }
 });
@@ -55710,6 +55716,12 @@ var render = function() {
       "div",
       { staticClass: "btn btn-primary", on: { click: _vm.sendReminders } },
       [_vm._v("\n    Mimic a reminder round\n  ")]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "btn btn-primary", on: { click: _vm.followUpReminders } },
+      [_vm._v("\n    Mimic a refill round\n  ")]
     )
   ])
 }

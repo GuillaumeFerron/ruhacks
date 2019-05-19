@@ -6,9 +6,9 @@
     <div class="btn btn-primary" @click="sendReminders">
       Mimic a reminder round
     </div>
-    <!--    <div class="btn">-->
-    <!--      Mimic a refill round-->
-    <!--    </div>-->
+    <div class="btn btn-primary" @click="followUpReminders">
+      Mimic a refill round
+    </div>
   </div>
 </template>
 
@@ -21,6 +21,14 @@
           {
             method: 'post',
             url: '/users/send-reminders'
+          }
+        )
+      },
+      followUpReminders() {
+        axios(
+          {
+            method: 'post',
+            url: '/users/followup-reminders'
           }
         )
       }
