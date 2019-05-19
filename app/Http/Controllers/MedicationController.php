@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Medication;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class MedicationController extends Controller
 {
@@ -35,7 +37,14 @@ class MedicationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Medication::insert([
+            'name' => $request->name,
+            'frequency' => $request->frequency,
+            'quantity_type' => $request->quantity_type,
+            'quantity_amount' => (int)$request->quantity_amount,
+            'qty' => $request->qty,
+            'user_id' => Auth::id()
+        ]);
     }
 
     /**
