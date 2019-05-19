@@ -55707,7 +55707,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card" }, [
+  return _c("div", { staticClass: "card p-3 mt-5" }, [
     _c("div", { staticClass: "card-title-h4" }, [
       _vm._v("\n    Demo CTAs\n  ")
     ]),
@@ -55720,7 +55720,10 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "btn btn-primary", on: { click: _vm.followUpReminders } },
+      {
+        staticClass: "btn btn-primary mt-2",
+        on: { click: _vm.followUpReminders }
+      },
       [_vm._v("\n    Mimic a refill round\n  ")]
     )
   ])

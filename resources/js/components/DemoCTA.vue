@@ -1,12 +1,12 @@
 <template>
-  <div class="card">
+  <div class="card p-3 mt-5">
     <div class="card-title-h4">
       Demo CTAs
     </div>
     <div class="btn btn-primary" @click="sendReminders">
       Mimic a reminder round
     </div>
-    <div class="btn btn-primary" @click="followUpReminders">
+    <div class="btn btn-primary mt-2" @click="followUpReminders">
       Mimic a refill round
     </div>
   </div>
