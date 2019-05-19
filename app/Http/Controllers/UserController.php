@@ -102,6 +102,6 @@ class UserController extends Controller
      */
     public function userReminders(User $user)
     {
-        return $user->reminders()->paginate(config('database.pagination'));
+        return $user->reminders()->orderBy('date_time')->paginate(config('database.pagination'));
     }
 }

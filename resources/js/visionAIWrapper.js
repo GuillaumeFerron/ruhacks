@@ -1,4 +1,4 @@
-window.sendDataToVAI = function () {
+window.sendDataToVAI = function (index, textArrays) {
   // TO BE FIXED BY OAUTH2 FOR CORS
   // axios({
   //   'async': true,
@@ -24,12 +24,8 @@ window.sendDataToVAI = function () {
   //     console.log(response)
   //   })
 
-  const data = {
-    'text': 'Target A Guest\nAMOXICILLIN 500MG\nCapsule\nGeneric for: Amoxil\nTake one capsule by\nmouth three times\ndaily\nqty: 30\nrefills: No\nDr. C Wilson\ndisp:\nTST\nmfr:\nNDC: 00781-2613-05\n(877)798-2743 6666056-1375\nO TARGET PHARMACY\n900 Nicollet Mall\nMinneapolis, MN 55403\nPATIENT INFO CARD\n'
-  }
-
   const nameTags = ['0mg', '0g', '0cg']
-  const frequencyTags = ['times', 'days', 'day', 'daily', 'weekly']
+  const frequencyTags = ['times', 'days', 'day', 'daily', 'weekly', 'hours', 'hour']
 
   let qty = ''
   let frequency = ''
@@ -37,7 +33,7 @@ window.sendDataToVAI = function () {
   let quantity_amount = ''
   let quantity_type = ''
 
-  const formattedText = data.text.toLowerCase().split('\n')
+  const formattedText = textArrays[index].text.toLowerCase().split('\n')
 
   // VERY SIMPLE PROCESSING, NEEDS TO BE MORE ROBUST
   formattedText.forEach(elem => {
@@ -53,27 +49,23 @@ window.sendDataToVAI = function () {
       quantity_type = elem.split(' ')[2]
     }
 
-    frequencyTags.forEach(frequencyTag => {
-      if (elem.indexOf(frequencyTag) !== -1) {
+    for (let i = 0; i < frequencyTags.length; i++) {
+      if (elem.indexOf(frequencyTags[i]) !== -1) {
         let formattedELem = elem.replace('mouth', '').replace('by', '')
         frequency += ` ${formattedELem}`
         return
       }
-    })
+    }
 
     elem.indexOf('qty') !== -1 ? qty = elem.replace(':', '').replace(' ', '').replace('qty', '') : ''
   })
 
   frequency = frequency.replace(/\s\s+/g, '')
 
-  console.log(name)
-  console.log(frequency)
-  console.log(qty)
-
-  axios(
+  return axios(
     {
       method: 'post',
-      url: 'http://ruhacks.test/medications',
+      url: '/medications',
       data: {
         frequency: frequency,
         name: name,
