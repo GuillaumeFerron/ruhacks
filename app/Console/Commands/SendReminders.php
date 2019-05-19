@@ -7,6 +7,7 @@ use App\User;
 use App\Utils\RemindersManagement;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 use Twilio\Rest\Client;
 
 class SendReminders extends Command
@@ -42,11 +43,15 @@ class SendReminders extends Command
      */
     public function handle()
     {
-        $start_time = Carbon::now()->setMinutes(0)->setSeconds(0);
-        $end_time = $start_time->copy()->addMinutes(59);
+        $start_time = Carbon::now()->setMinutes(0)->setSeconds(0)->timezone('America/Toronto');
+        $end_time = $start_time->copy()->addMinutes(59)->timezone('America/Toronto');
+
+        Log::debug($start_time);
+        Log::debug($end_time);
 
         // TODO TO BE REFACTORED !
         $reminders = RemindersManagement::getRemindersBetweenTimes($start_time, $end_time);
+        Log::debug($reminders);
 
         if (count($reminders) > 0) {
             $content = $this->getMessageBody($reminders, $start_time);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 
 class UserController extends Controller
 {
@@ -103,5 +104,10 @@ class UserController extends Controller
     public function userReminders(User $user)
     {
         return $user->reminders()->orderBy('date_time')->paginate(config('database.pagination'));
+    }
+
+    public function sendReminders()
+    {
+        Artisan::call('reminders:send');
     }
 }

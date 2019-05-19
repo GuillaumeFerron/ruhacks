@@ -46,7 +46,7 @@ export default new Vuex.Store({
       })
         .then(response => {
           commit('UPDATE_REMINDERS', response.data.data)
-          paylaod ? commit('UPDATE_LOAD', false) : ''
+          payload ? commit('UPDATE_LOAD', false) : ''
         })
     }
   }
