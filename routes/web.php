@@ -18,3 +18,24 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resources([
+    'medications' => 'MedicationController',
+    'users' => 'UserController',
+    'pictures' => 'PictureController',
+    'warnings' => 'WarningController',
+    'reminders' => 'ReminderController'
+]);
+
+Route::group([
+    'prefix' => 'users'
+], function () {
+    Route::get('/{user}/medications', 'UserController@userMedications');
+    Route::get('/{user}/reminders', 'UserController@userReminders');
+});
+
+Route::group([
+    'prefix' => 'medications'
+], function () {
+    Route::get('/{medication}/reminders', 'MedicationController@medicationReminders');
+});
