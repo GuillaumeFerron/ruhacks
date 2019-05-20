@@ -2016,7 +2016,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios({
         method: 'patch',
-        url: '/reminders/' + id,
+        url: '/reminders',
         data: {
           status: this.$el.querySelector('#input-' + id).checked
         }
@@ -69737,7 +69737,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
       payload ? commit('UPDATE_LOAD', true) : '';
       axios({
         method: 'get',
-        url: '/users/1/reminders'
+        url: '/users/' + window.user.id + '/reminders'
       }).then(function (response) {
         commit('UPDATE_REMINDERS', response.data.data);
         payload ? commit('UPDATE_LOAD', false) : '';

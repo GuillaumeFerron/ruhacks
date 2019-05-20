@@ -91,7 +91,7 @@ class MedicationController extends Controller
      */
     public function show($id)
     {
-        return Medication::find($id)->paginate(config('database.pagination'));
+        return Medication::find($id ? $id : Auth::id())->paginate(config('database.pagination'));
     }
 
     /**

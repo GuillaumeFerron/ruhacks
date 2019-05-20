@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
 use Twilio\Rest\Client;
 
 class UserController extends Controller
@@ -48,7 +49,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return User::find($id)->paginate(config('database.pagination'));
+        return User::find($id ? $id : Auth::id())->paginate(config('database.pagination'));
     }
 
     /**
@@ -114,7 +115,7 @@ class UserController extends Controller
 
     public function followUpReminders()
     {
-        $user = User::where('id', 1)->first();
+        $user = User::where('id', Auth::check() ? Auth::id() : 1)->first();
         $sid = env('TWILIO_KEY');
         $token = env("TWILIO_SECRET");
         $twilio = new Client($sid, $token);

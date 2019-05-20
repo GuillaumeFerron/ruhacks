@@ -8,6 +8,7 @@ use App\User;
 use App\Utils\RemindersManagement;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Twilio\Rest\Client;
 
@@ -58,7 +59,7 @@ class SendReminders extends Command
         if (count($reminders) > 0) {
             $content = $this->getMessageBody($reminders, $start_time);
 
-            $user = User::where('id', 1)->first();
+            $user = User::where('id', Auth::check() ? Auth::id() : 1)->first();
             $sid = env('TWILIO_KEY');
             $token = env("TWILIO_SECRET");
             $twilio = new Client($sid, $token);
