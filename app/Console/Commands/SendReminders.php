@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Notifications\SendMedicationSMS;
+use App\Reminder;
 use App\User;
 use App\Utils\RemindersManagement;
 use Carbon\Carbon;
@@ -50,7 +51,8 @@ class SendReminders extends Command
         Log::debug($end_time);
 
         // TODO TO BE REFACTORED !
-        $reminders = RemindersManagement::getRemindersBetweenTimes($start_time, $end_time);
+//        $reminders = RemindersManagement::getRemindersBetweenTimes($start_time, $end_time);
+        $reminders = [Reminder::first()];
         Log::debug($reminders);
 
         if (count($reminders) > 0) {
