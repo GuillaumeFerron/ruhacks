@@ -6,7 +6,6 @@
       <div class="cssload-cube cssload-c4"></div>
       <div class="cssload-cube cssload-c3"></div>
     </div>
-    <span class="mt-3">Processing...</span>
   </div>
 </template>
 
@@ -36,7 +35,7 @@
     width: 73px;
     height: 73px;
     top: 50%;
-    left: 40%;
+    left: 50%;
     position: relative;
     transform: rotateZ(45deg) translate(-50%, -50%);
     -o-transform: rotateZ(45deg) translate(-50%, -50%);

@@ -4,10 +4,13 @@
       Demo CTAs
     </div>
     <div class="btn btn-primary" @click="sendReminders">
-      Mimic a reminder round
+      Mimic a Reminder Round
     </div>
     <div class="btn btn-primary mt-2" @click="followUpReminders">
-      Mimic a refill round
+      Mimic a Refill Round
+    </div>
+    <div class="btn btn-primary mt-2" @click="clearData">
+      Clear Medications & Reminders
     </div>
   </div>
 </template>
@@ -31,6 +34,18 @@
             url: '/users/followup-reminders'
           }
         )
+      },
+      clearData() {
+        axios(
+          {
+            method: 'post',
+            url: '/data/clear'
+          }
+        )
+          .then(response => {
+            this.$store.dispatch('getMedications')
+            this.$store.dispatch('getReminders')
+          })
       }
     }
   }
