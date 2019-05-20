@@ -44,4 +44,11 @@ Route::group([
     ], function () {
         Route::get('/{medication}/reminders', 'MedicationController@medicationReminders');
     });
+
+    Route::post('/data/clear', function () {
+        \App\Reminder::truncate()->delete();
+        \App\Medication::truncate()->delete();
+
+        return response('Records deleted !', 200);
+    });
 });

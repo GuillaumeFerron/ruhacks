@@ -1815,6 +1815,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'DemoCTA',
   methods: {
@@ -1828,6 +1831,18 @@ __webpack_require__.r(__webpack_exports__);
       axios({
         method: 'post',
         url: '/users/followup-reminders'
+      });
+    },
+    clearData: function clearData() {
+      var _this = this;
+
+      axios({
+        method: 'post',
+        url: '/data/clear'
+      }).then(function (response) {
+        _this.$store.dispatch('getMedications');
+
+        _this.$store.dispatch('getReminders');
       });
     }
   }
@@ -1935,7 +1950,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -6499,7 +6513,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.preloader-container[data-v-77d6c8ca] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  z-index: 999;\n  background-color: rgba(255, 255, 255, 0.8);\n  transition: all 0.3s;\n}\n.cssload-thecube[data-v-77d6c8ca] {\n  width: 73px;\n  height: 73px;\n  top: 50%;\n  left: 40%;\n  position: relative;\n  transform: rotateZ(45deg) translate(-50%, -50%);\n  -o-transform: rotateZ(45deg) translate(-50%, -50%);\n  -ms-transform: rotateZ(45deg) translate(-50%, -50%);\n  -webkit-transform: rotateZ(45deg) translate(-50%, -50%);\n  -moz-transform: rotateZ(45deg) translate(-50%, -50%);\n}\n.cssload-thecube .cssload-cube[data-v-77d6c8ca] {\n  position: relative;\n  transform: rotateZ(45deg);\n  -o-transform: rotateZ(45deg);\n  -ms-transform: rotateZ(45deg);\n  -webkit-transform: rotateZ(45deg);\n  -moz-transform: rotateZ(45deg);\n}\n.cssload-thecube .cssload-cube[data-v-77d6c8ca] {\n  float: left;\n  width: 50%;\n  height: 50%;\n  position: relative;\n  transform: scale(1.1);\n  -o-transform: scale(1.1);\n  -ms-transform: scale(1.1);\n  -webkit-transform: scale(1.1);\n  -moz-transform: scale(1.1);\n}\n.cssload-thecube .cssload-cube[data-v-77d6c8ca]:before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgb(43, 160, 199);\n  animation: cssload-fold-thecube-data-v-77d6c8ca 2.76s infinite linear both;\n  -o-animation: cssload-fold-thecube-data-v-77d6c8ca 2.76s infinite linear both;\n  -ms-animation: cssload-fold-thecube-data-v-77d6c8ca 2.76s infinite linear both;\n  -webkit-animation: cssload-fold-thecube-data-v-77d6c8ca 2.76s infinite linear both;\n  -moz-animation: cssload-fold-thecube-data-v-77d6c8ca 2.76s infinite linear both;\n  transform-origin: 100% 100%;\n  -o-transform-origin: 100% 100%;\n  -ms-transform-origin: 100% 100%;\n  -webkit-transform-origin: 100% 100%;\n  -moz-transform-origin: 100% 100%;\n}\n.cssload-thecube .cssload-c2[data-v-77d6c8ca] {\n  transform: scale(1.1) rotateZ(90deg);\n  -o-transform: scale(1.1) rotateZ(90deg);\n  -ms-transform: scale(1.1) rotateZ(90deg);\n  -webkit-transform: scale(1.1) rotateZ(90deg);\n  -moz-transform: scale(1.1) rotateZ(90deg);\n}\n.cssload-thecube .cssload-c3[data-v-77d6c8ca] {\n  transform: scale(1.1) rotateZ(180deg);\n  -o-transform: scale(1.1) rotateZ(180deg);\n  -ms-transform: scale(1.1) rotateZ(180deg);\n  -webkit-transform: scale(1.1) rotateZ(180deg);\n  -moz-transform: scale(1.1) rotateZ(180deg);\n}\n.cssload-thecube .cssload-c4[data-v-77d6c8ca] {\n  transform: scale(1.1) rotateZ(270deg);\n  -o-transform: scale(1.1) rotateZ(270deg);\n  -ms-transform: scale(1.1) rotateZ(270deg);\n  -webkit-transform: scale(1.1) rotateZ(270deg);\n  -moz-transform: scale(1.1) rotateZ(270deg);\n}\n.cssload-thecube .cssload-c2[data-v-77d6c8ca]:before {\n  animation-delay: 0.35s;\n  -o-animation-delay: 0.35s;\n  -ms-animation-delay: 0.35s;\n  -webkit-animation-delay: 0.35s;\n  -moz-animation-delay: 0.35s;\n}\n.cssload-thecube .cssload-c3[data-v-77d6c8ca]:before {\n  animation-delay: 0.69s;\n  -o-animation-delay: 0.69s;\n  -ms-animation-delay: 0.69s;\n  -webkit-animation-delay: 0.69s;\n  -moz-animation-delay: 0.69s;\n}\n.cssload-thecube .cssload-c4[data-v-77d6c8ca]:before {\n  animation-delay: 1.04s;\n  -o-animation-delay: 1.04s;\n  -ms-animation-delay: 1.04s;\n  -webkit-animation-delay: 1.04s;\n  -moz-animation-delay: 1.04s;\n}\n@keyframes cssload-fold-thecube-data-v-77d6c8ca {\n0%, 10% {\n    -webkit-transform: perspective(136px) rotateX(-180deg);\n            transform: perspective(136px) rotateX(-180deg);\n    opacity: 0;\n}\n25%,\n  75% {\n    -webkit-transform: perspective(136px) rotateX(0deg);\n            transform: perspective(136px) rotateX(0deg);\n    opacity: 1;\n}\n90%,\n  100% {\n    -webkit-transform: perspective(136px) rotateY(180deg);\n            transform: perspective(136px) rotateY(180deg);\n    opacity: 0;\n}\n}\n@-webkit-keyframes cssload-fold-thecube-data-v-77d6c8ca {\n0%, 10% {\n    -webkit-transform: perspective(136px) rotateX(-180deg);\n    opacity: 0;\n}\n25%,\n  75% {\n    -webkit-transform: perspective(136px) rotateX(0deg);\n    opacity: 1;\n}\n90%,\n  100% {\n    -webkit-transform: perspective(136px) rotateY(180deg);\n    opacity: 0;\n}\n}\n", ""]);
+exports.push([module.i, "\n.preloader-container[data-v-77d6c8ca] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  z-index: 999;\n  background-color: rgba(255, 255, 255, 0.8);\n  transition: all 0.3s;\n}\n.cssload-thecube[data-v-77d6c8ca] {\n  width: 73px;\n  height: 73px;\n  top: 50%;\n  left: 50%;\n  position: relative;\n  transform: rotateZ(45deg) translate(-50%, -50%);\n  -o-transform: rotateZ(45deg) translate(-50%, -50%);\n  -ms-transform: rotateZ(45deg) translate(-50%, -50%);\n  -webkit-transform: rotateZ(45deg) translate(-50%, -50%);\n  -moz-transform: rotateZ(45deg) translate(-50%, -50%);\n}\n.cssload-thecube .cssload-cube[data-v-77d6c8ca] {\n  position: relative;\n  transform: rotateZ(45deg);\n  -o-transform: rotateZ(45deg);\n  -ms-transform: rotateZ(45deg);\n  -webkit-transform: rotateZ(45deg);\n  -moz-transform: rotateZ(45deg);\n}\n.cssload-thecube .cssload-cube[data-v-77d6c8ca] {\n  float: left;\n  width: 50%;\n  height: 50%;\n  position: relative;\n  transform: scale(1.1);\n  -o-transform: scale(1.1);\n  -ms-transform: scale(1.1);\n  -webkit-transform: scale(1.1);\n  -moz-transform: scale(1.1);\n}\n.cssload-thecube .cssload-cube[data-v-77d6c8ca]:before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgb(43, 160, 199);\n  animation: cssload-fold-thecube-data-v-77d6c8ca 2.76s infinite linear both;\n  -o-animation: cssload-fold-thecube-data-v-77d6c8ca 2.76s infinite linear both;\n  -ms-animation: cssload-fold-thecube-data-v-77d6c8ca 2.76s infinite linear both;\n  -webkit-animation: cssload-fold-thecube-data-v-77d6c8ca 2.76s infinite linear both;\n  -moz-animation: cssload-fold-thecube-data-v-77d6c8ca 2.76s infinite linear both;\n  transform-origin: 100% 100%;\n  -o-transform-origin: 100% 100%;\n  -ms-transform-origin: 100% 100%;\n  -webkit-transform-origin: 100% 100%;\n  -moz-transform-origin: 100% 100%;\n}\n.cssload-thecube .cssload-c2[data-v-77d6c8ca] {\n  transform: scale(1.1) rotateZ(90deg);\n  -o-transform: scale(1.1) rotateZ(90deg);\n  -ms-transform: scale(1.1) rotateZ(90deg);\n  -webkit-transform: scale(1.1) rotateZ(90deg);\n  -moz-transform: scale(1.1) rotateZ(90deg);\n}\n.cssload-thecube .cssload-c3[data-v-77d6c8ca] {\n  transform: scale(1.1) rotateZ(180deg);\n  -o-transform: scale(1.1) rotateZ(180deg);\n  -ms-transform: scale(1.1) rotateZ(180deg);\n  -webkit-transform: scale(1.1) rotateZ(180deg);\n  -moz-transform: scale(1.1) rotateZ(180deg);\n}\n.cssload-thecube .cssload-c4[data-v-77d6c8ca] {\n  transform: scale(1.1) rotateZ(270deg);\n  -o-transform: scale(1.1) rotateZ(270deg);\n  -ms-transform: scale(1.1) rotateZ(270deg);\n  -webkit-transform: scale(1.1) rotateZ(270deg);\n  -moz-transform: scale(1.1) rotateZ(270deg);\n}\n.cssload-thecube .cssload-c2[data-v-77d6c8ca]:before {\n  animation-delay: 0.35s;\n  -o-animation-delay: 0.35s;\n  -ms-animation-delay: 0.35s;\n  -webkit-animation-delay: 0.35s;\n  -moz-animation-delay: 0.35s;\n}\n.cssload-thecube .cssload-c3[data-v-77d6c8ca]:before {\n  animation-delay: 0.69s;\n  -o-animation-delay: 0.69s;\n  -ms-animation-delay: 0.69s;\n  -webkit-animation-delay: 0.69s;\n  -moz-animation-delay: 0.69s;\n}\n.cssload-thecube .cssload-c4[data-v-77d6c8ca]:before {\n  animation-delay: 1.04s;\n  -o-animation-delay: 1.04s;\n  -ms-animation-delay: 1.04s;\n  -webkit-animation-delay: 1.04s;\n  -moz-animation-delay: 1.04s;\n}\n@keyframes cssload-fold-thecube-data-v-77d6c8ca {\n0%, 10% {\n    -webkit-transform: perspective(136px) rotateX(-180deg);\n            transform: perspective(136px) rotateX(-180deg);\n    opacity: 0;\n}\n25%,\n  75% {\n    -webkit-transform: perspective(136px) rotateX(0deg);\n            transform: perspective(136px) rotateX(0deg);\n    opacity: 1;\n}\n90%,\n  100% {\n    -webkit-transform: perspective(136px) rotateY(180deg);\n            transform: perspective(136px) rotateY(180deg);\n    opacity: 0;\n}\n}\n@-webkit-keyframes cssload-fold-thecube-data-v-77d6c8ca {\n0%, 10% {\n    -webkit-transform: perspective(136px) rotateX(-180deg);\n    opacity: 0;\n}\n25%,\n  75% {\n    -webkit-transform: perspective(136px) rotateX(0deg);\n    opacity: 1;\n}\n90%,\n  100% {\n    -webkit-transform: perspective(136px) rotateY(180deg);\n    opacity: 0;\n}\n}\n", ""]);
 
 // exports
 
@@ -55715,7 +55729,7 @@ var render = function() {
     _c(
       "div",
       { staticClass: "btn btn-primary", on: { click: _vm.sendReminders } },
-      [_vm._v("\n    Mimic a reminder round\n  ")]
+      [_vm._v("\n    Mimic a Reminder Round\n  ")]
     ),
     _vm._v(" "),
     _c(
@@ -55724,7 +55738,13 @@ var render = function() {
         staticClass: "btn btn-primary mt-2",
         on: { click: _vm.followUpReminders }
       },
-      [_vm._v("\n    Mimic a refill round\n  ")]
+      [_vm._v("\n    Mimic a Refill Round\n  ")]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "btn btn-primary mt-2", on: { click: _vm.clearData } },
+      [_vm._v("\n    Clear Medications & Reminders\n  ")]
     )
   ])
 }
@@ -55861,11 +55881,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.$store.state.load
-    ? _c("div", { staticClass: "preloader-container" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("span", { staticClass: "mt-3" }, [_vm._v("Processing...")])
-      ])
+    ? _c("div", { staticClass: "preloader-container" }, [_vm._m(0)])
     : _vm._e()
 }
 var staticRenderFns = [
