@@ -42,7 +42,7 @@ export default new Vuex.Store({
       payload ? commit('UPDATE_LOAD', true) : ''
       axios({
         method: 'get',
-        url: '/users/1/reminders'
+        url: '/users/' + window.user.id + '/reminders'
       })
         .then(response => {
           commit('UPDATE_REMINDERS', response.data.data)

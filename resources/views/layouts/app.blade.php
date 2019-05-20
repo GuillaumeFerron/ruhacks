@@ -80,5 +80,9 @@
         @yield('content')
     </main>
 </div>
+
+<script>
+  window.user = JSON.parse(`{!! \Illuminate\Support\Facades\Auth::check() ? \Illuminate\Support\Facades\Auth::user() : '{}' !!}`)
+</script>
 </body>
 </html>

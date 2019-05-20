@@ -37,7 +37,7 @@
         axios(
           {
             method: 'patch',
-            url: '/reminders/' + id,
+            url: '/reminders',
             data: {
               status: this.$el.querySelector('#input-' + id).checked
             }
