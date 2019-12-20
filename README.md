@@ -10,9 +10,7 @@ You can set several options such as the end of the cycle, or add a pill directly
 
 ## User Flow
 
-![User flow](https://lh6.googleusercontent.com/3kvTFea10NCQa-6iZ6XjKDAma3AqdBG6gpO8QRnE7Qbvf0oESjR_NoFb03bpOrV6v6PmFY8V8kY4Bg=w2880-h1546-rw)
-
-[Get the image in a bigger resolution here](https://lh6.googleusercontent.com/3kvTFea10NCQa-6iZ6XjKDAma3AqdBG6gpO8QRnE7Qbvf0oESjR_NoFb03bpOrV6v6PmFY8V8kY4Bg=w2880-h1546-rw)
+Check out the user flow [here](https://drive.google.com/file/d/1PwKrwcNvh8WOmIoX5Vx4TmExUSvW510j/view)
 
 ## Technical Stack
 
